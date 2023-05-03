@@ -1,0 +1,30 @@
+{
+  "name": "create-next-boilerplate",
+  "version": "0.0.0",
+  "description": "Create Next App boilerplate generator",
+  "license": "MIT",
+  "author": "Syg",
+  "bin": "./dist/index.js",
+  "scripts": {
+    "prerelease": "rimraf ./dist/",
+    "release": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
+    "build": "pnpm release",
+    "format:package": "npx prettier-package-json --write package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "create-next-app",
+    "generator",
+    "next",
+    "next.js",
+    "nodejs",
+    "react",
+    "typescript"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "@vercel/ncc": "^0.36.1",
+    "typescript": "^5.0.4"
+  }
+}
