@@ -6,11 +6,29 @@
   "author": "Syg",
   "bin": "./dist/index.js",
   "scripts": {
+    "build": "pnpm release",
+    "dev": "ncc build ./src/index.ts -w -o dist/",
+    "format:package": "npx prettier-package-json --write package.json",
     "prerelease": "rimraf ./dist/",
     "release": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
-    "build": "pnpm release",
-    "format:package": "npx prettier-package-json --write package.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve:coverage": "npx http-server ./coverage",
+    "start:dev": "tsx src/index.ts",
+    "test": "vitest --run --coverage",
+    "test:watch": "vitest --coverage",
+    "upgrade:package": "npx npm-check-updates -iu"
+  },
+  "dependencies": {
+    "@npmcli/promise-spawn": "^6.0.2",
+    "chalk": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "@types/npmcli__promise-spawn": "^6.0.0",
+    "@vercel/ncc": "^0.36.1",
+    "@vitest/coverage-c8": "^0.31.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.4",
+    "vitest": "^0.31.0"
   },
   "keywords": [
     "cli",
@@ -21,10 +39,5 @@
     "nodejs",
     "react",
     "typescript"
-  ],
-  "devDependencies": {
-    "@types/node": "^18.16.3",
-    "@vercel/ncc": "^0.36.1",
-    "typescript": "^5.0.4"
-  }
+  ]
 }
