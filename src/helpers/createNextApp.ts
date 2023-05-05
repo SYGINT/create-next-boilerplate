@@ -19,7 +19,7 @@ export function createNextAppCommand(options?: Options) {
     "--typescript",
     "--tailwind",
     "--eslint",
-    "--no-experimental-app",
+    "--no-app",
     "--src-dir",
     "--import-alias @/*",
   ];
@@ -41,8 +41,8 @@ export function createNextAppCommand(options?: Options) {
     }
 
     if (options.app === true) {
-      optionsFlags.push("--experimental-app");
-      optionsFlags = removeOption(optionsFlags, "--no-experimental-app");
+      optionsFlags.push("--app");
+      optionsFlags = removeOption(optionsFlags, "--no-app");
     }
 
     if (options.srcDir === false) {

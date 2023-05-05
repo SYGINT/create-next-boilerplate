@@ -59,7 +59,8 @@ describe("createNextAppCommand()", () => {
     {
       value: { app: true },
       expected: {
-        toContain: "--experimental-app",
+        toContain: "--app",
+        notToContain: "--no-app",
       },
     },
     {
@@ -87,7 +88,7 @@ describe("createNextAppCommand()", () => {
 
   test("should return command with defaults", () => {
     expect(createNextAppCommand()).toBe(
-      "create-next-app --typescript --tailwind --eslint --no-experimental-app --src-dir --import-alias @/*"
+      "create-next-app --typescript --tailwind --eslint --no-app --src-dir --import-alias @/*"
     );
   });
 
