@@ -9,6 +9,7 @@
     "build": "pnpm release",
     "dev": "ncc build ./src/index.ts -w -o dist/",
     "format:package": "npx prettier-package-json --write package.json",
+    "prepare": "husky install",
     "prerelease": "rimraf ./dist/",
     "release": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
     "serve:coverage": "npx http-server ./coverage",
@@ -26,6 +27,7 @@
     "@types/npmcli__promise-spawn": "^6.0.0",
     "@vercel/ncc": "^0.36.1",
     "@vitest/coverage-c8": "^0.31.0",
+    "husky": "^8.0.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
     "vitest": "^0.31.0"
